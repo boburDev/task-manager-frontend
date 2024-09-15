@@ -47,13 +47,16 @@ export function SignIn() {
       });
       if (response.data) {
         const userData = response.data.user;
-        console.log(response.data);
         loginSuccess(userData);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userId", response.data.user.id);
       }
+      if (response.data.user.role === "admin") {
+        navigate("/dashboard");
+      } else {
+        navigate("/dashboard/tasks");
+      }
       console.log(response.data);
-      navigate("/dashboard");
       toast.success("Successfully signed in");
     } catch (error) {
       if (!error.response) {
@@ -88,35 +91,37 @@ export function SignIn() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="mb-1 flex flex-col">
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-3 font-medium"
-            >
-              Email
-            </Typography>
-            <Controller
-              name="email"
-              control={control}
-              defaultValue=""
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  {...register("email", { required: true })}
-                  size="lg"
-                  placeholder="email"
-                  className={`!border-t-blue-gray-200 focus:!border-t-gray-900`}
-                  labelProps={{
-                    className: "before:content-none after:content-none",
-                  }}
-                />
-              )}
-            />
-            {errors?.email && (
-              <Typography variant="small" color="red" className="mb-6">
-                Please enter email
+            <div className="mb-3">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-3 font-medium"
+              >
+                Email
               </Typography>
-            )}
+              <Controller
+                name="email"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    {...register("email", { required: true })}
+                    size="lg"
+                    placeholder="email"
+                    className={`!border-t-blue-gray-200 focus:!border-t-gray-900`}
+                    labelProps={{
+                      className: "before:content-none after:content-none",
+                    }}
+                  />
+                )}
+              />
+              {errors?.email && (
+                <Typography variant="small" color="red" className="mb-6">
+                  Please enter email
+                </Typography>
+              )}
+            </div>
 
             <div className="flex justify-between items-center">
               <Typography

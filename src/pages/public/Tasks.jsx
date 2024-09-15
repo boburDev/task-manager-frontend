@@ -17,6 +17,8 @@ const Tasks = () => {
   const [tableElement, setTableElement] = useState({});
   const { data: task, isLoading } = useFetchData("task/all");
   const { mutate: createProduct } = useCreateData("task");
+  const folder = JSON.parse(localStorage.getItem("mohir"));
+  console.log(task);
   const handleOpen = (element) => {
     if (element) {
       setTableElement(element);
@@ -50,10 +52,23 @@ const Tasks = () => {
           <table className="w-full min-w-[640px] table-auto overflow-x-auto">
             <thead className="bg-blue-gray-900 text-white ">
               <tr>
+                {folder?.state?.user?.role === "admin" && (
+                  <th
+                    key="username"
+                    className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                  >
+                    <Typography
+                      variant="small"
+                      className="text-[11px] font-bold uppercase"
+                    >
+                      Username
+                    </Typography>
+                  </th>
+                )}{" "}
                 {Object.values(taskHeader).map((el, index) => (
                   <th
                     key={index}
-                    className="py-3 px-5 text-left border-blue-gray-50"
+                    className="py-3 px-4 text-left border-blue-gray-50"
                   >
                     <Typography
                       variant="small"
@@ -63,7 +78,7 @@ const Tasks = () => {
                     </Typography>
                   </th>
                 ))}
-                <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
+                <th className="border-b border-blue-gray-50 py-3 px-4 text-left">
                   <Typography
                     variant="small"
                     className="text-[11px] font-bold uppercase"

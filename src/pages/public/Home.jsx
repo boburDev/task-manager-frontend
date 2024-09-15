@@ -17,7 +17,6 @@ const Home = () => {
   const { data, isLoading } = useFetchData("task/pie-chart");
   const { data: userTasks, isLoading: userTaskLoading } =
     useFetchData("task/user-tasks");
-  console.log(userTasks);
   const handleOpen = (element) => {
     if (element) {
       setTableElement(element);
@@ -43,7 +42,7 @@ const Home = () => {
                 {Object.values(homeTaskHeader).map((el, index) => (
                   <th
                     key={index}
-                    className="py-3 px-5 text-left border-blue-gray-50"
+                    className="py-3 px-4 text-left border-blue-gray-50"
                   >
                     <Typography
                       variant="small"
