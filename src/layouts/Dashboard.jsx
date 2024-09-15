@@ -34,7 +34,7 @@ export function Dashboard() {
           visibleSideNav ? setVisibleSideNav(false) : setVisibleSideNav(true)
         }
       />
-      <div className="p-4 ml-0 xl:ml-[6rem]">
+      <div className="p-4 ml-0 xl:ml-[8%]">
         <DashboardNavbar
           toggleSideNav={() =>
             visibleSideNav ? setVisibleSideNav(false) : setVisibleSideNav(true)
