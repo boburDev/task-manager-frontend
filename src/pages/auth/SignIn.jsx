@@ -171,7 +171,7 @@ export function SignIn() {
             </Button>
           )}
 
-          <div className="flex">
+          <div className="flex items-center justify-center">
             <Typography
               variant="paragraph"
               className="text-center text-sm text-blue-gray-500 font-medium mt-4"
