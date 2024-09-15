@@ -35,10 +35,7 @@ const HomeTaskTable = ({ element, handleOpen }) => {
       {/* Task satri */}
       <tr className="bg-white text-black overflow-x-auto">
         <td className={className}>
-          <Typography
-            variant="small"
-            className="text-xs font-medium capitalize"
-          >
+          <Typography variant="small" className="text-xs font-medium">
             {element?.email}
           </Typography>
         </td>
@@ -55,7 +52,8 @@ const HomeTaskTable = ({ element, handleOpen }) => {
             variant="small"
             className="text-xs font-medium capitalize"
           >
-            {element.completionRate}
+            {Math.floor((element.completedTasks / element?.totalTasks) * 100) +
+              "%"}
           </Typography>
         </td>
 

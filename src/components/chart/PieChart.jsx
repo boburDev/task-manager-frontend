@@ -33,7 +33,10 @@ const PieChart = (data) => {
     };
   }, [data]);
   return (
-    <div className="w-[400px] h-[300px] mt-14 mx-auto">
+    <div className="w-[400px] h-[300px] flex text-blue-gray-800 font-medium flex-col items-center mt-14 mx-auto mb-16">
+      <h4 className="text-[18px] text-center">
+        All: {data?.data?.[0]?.totalTasks}
+      </h4>
       <canvas
         ref={chartRef}
         style={{ width: "50px", height: "50px" }}
