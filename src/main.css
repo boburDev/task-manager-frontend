@@ -1,0 +1,9 @@
+#compleatedCheckBtn div label {
+    position: relative;
+    display: flex;
+    padding: 0 0 5px 5px;
+}
+
+#compleatedCheckBtn div label span {
+    padding: 0 0 5px 5px;
+}
