@@ -25,15 +25,15 @@ export function SignIn() {
   const signInHook = useSignIn();
   const loginSuccess = useStore((state) => state.loginSuccess);
   useEffect(() => {
-    setValue("username", watch("username"));
+    setValue("email", watch("email"));
     setValue("password", watch("password"));
   }, [setValue, watch]);
 
-  const onSubmit = async ({ username, password }) => {
+  const onSubmit = async ({ email, password }) => {
     setLoading(true);
     try {
       const response = await request.post(API.LOGIN, {
-        username,
+        email,
         password,
       });
       signInHook({
@@ -42,7 +42,7 @@ export function SignIn() {
           type: "Bearer",
         },
         userState: {
-          username: response.data.username,
+          email: response.data.email,
         },
       });
       if (response.data) {
@@ -93,18 +93,18 @@ export function SignIn() {
               color="blue-gray"
               className="mb-3 font-medium"
             >
-              Username
+              Email
             </Typography>
             <Controller
-              name="username"
+              name="email"
               control={control}
               defaultValue=""
               render={({ field }) => (
                 <Input
                   {...field}
-                  {...register("username", { required: true })}
+                  {...register("email", { required: true })}
                   size="lg"
-                  placeholder="username"
+                  placeholder="email"
                   className={`!border-t-blue-gray-200 focus:!border-t-gray-900`}
                   labelProps={{
                     className: "before:content-none after:content-none",
@@ -112,9 +112,9 @@ export function SignIn() {
                 />
               )}
             />
-            {errors?.username && (
+            {errors?.email && (
               <Typography variant="small" color="red" className="mb-6">
-                Please enter username
+                Please enter email
               </Typography>
             )}
 

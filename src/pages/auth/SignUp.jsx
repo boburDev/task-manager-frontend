@@ -26,6 +26,7 @@ export function SignUp() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    console.log(data);
     setLoading(true);
     const parsedData = {
       ...data,
@@ -47,6 +48,7 @@ export function SignUp() {
         }, 2000);
       }
     } catch (error) {
+      console.log(error);
       if (!error.response) {
         toast.error("The server is not responding. Please try again later.", {
           theme: "colored",
@@ -90,23 +92,23 @@ export function SignUp() {
               color="blue-gray"
               className="-mb-3 font-medium"
             >
-              User name
+              Email
             </Typography>
             <Input
               size="lg"
-              placeholder="username"
+              placeholder="email"
               className="!border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
-              {...register("username", {
+              {...register("email", {
                 required: true,
                 pattern: /^[а-яА-ЯёЁa-zA-Z\s]+$/,
               })}
             />
-            {errors.username && (
+            {errors.email && (
               <Typography variant="small" color="red" className="mt-1">
-                Please enter a valid username
+                Please enter a valid email
               </Typography>
             )}
           </div>
