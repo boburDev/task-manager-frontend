@@ -1,4 +1,4 @@
-export const DOMAIN = "http://95.130.227.119:5000";
+export const DOMAIN = "https://apimohirdev.uz-fox.uz";
 export const LOGIN = `${DOMAIN}/auth/login`;
 export const REGISTER = `${DOMAIN}/auth/register`;
 export const LIMIT = 20;
