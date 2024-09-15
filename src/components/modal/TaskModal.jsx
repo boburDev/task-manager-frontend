@@ -6,17 +6,14 @@ import {
   DialogBody,
   DialogHeader,
   Input,
-  Option,
-  Select,
 } from "@material-tailwind/react";
 import { useEffect } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const TaskModal = (props) => {
   const { isModalOpen, handleOpen, onSubmit, element } = props;
   const {
     handleSubmit,
-    control,
     register,
     reset,
     formState: { errors },
