@@ -126,9 +126,6 @@ export function SignIn() {
               >
                 Password
               </Typography>
-              <Link className="text-blue-500 mb-3 font-medium text-sm">
-                Forgot ?
-              </Link>
             </div>
             <Controller
               name="password"
