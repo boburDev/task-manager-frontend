@@ -81,7 +81,7 @@ export function SignUp() {
           </Typography>
         </div>
         <form
-          className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2"
+          className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-2/3"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-6 mb-3">
