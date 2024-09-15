@@ -46,7 +46,6 @@ export function SignUp() {
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
       if (!error.response) {
         toast.error("The server is not responding. Please try again later.", {
           theme: "colored",

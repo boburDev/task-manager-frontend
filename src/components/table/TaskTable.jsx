@@ -16,7 +16,6 @@ const TaskTable = ({ element, handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const folder = JSON.parse(localStorage.getItem("mohir"));
-  console.log(folder);
   const handleDeleteConfirm = (id) => {
     setIsOpen(true);
     setSelectedTaskId(id); // O'chirilayotgan task ID sini saqlab qo'yamiz

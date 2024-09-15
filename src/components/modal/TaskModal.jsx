@@ -18,7 +18,6 @@ const TaskModal = (props) => {
     reset,
     formState: { errors },
   } = useForm();
-  console.log(element);
   useEffect(() => {
     reset(element);
     reset();
@@ -63,7 +62,7 @@ const TaskModal = (props) => {
               <label htmlFor="completed" className="mb-2 text-blue-gray-600">
                 Completed:
               </label>
-              <Checkbox  id="completed" {...register("completed")}  />
+              <Checkbox id="completed" {...register("completed")} />
             </div>
           </div>
           <div className="flex justify-end items-end col-span-2 mt-4">

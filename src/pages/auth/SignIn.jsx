@@ -56,7 +56,6 @@ export function SignIn() {
       } else {
         navigate("/dashboard/tasks");
       }
-      console.log(response.data);
       toast.success("Successfully signed in");
     } catch (error) {
       if (!error.response) {

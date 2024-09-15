@@ -18,7 +18,6 @@ const Tasks = () => {
   const { data: task, isLoading } = useFetchData("task/all");
   const { mutate: createProduct } = useCreateData("task");
   const folder = JSON.parse(localStorage.getItem("mohir"));
-  console.log(task);
   const handleOpen = (element) => {
     if (element) {
       setTableElement(element);
