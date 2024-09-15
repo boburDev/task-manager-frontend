@@ -26,13 +26,11 @@ export function SignUp() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data);
     setLoading(true);
     const parsedData = {
       ...data,
       enter: true,
     };
-
     try {
       const response = await axios.post(API.REGISTER, parsedData);
       if (response.data) {
@@ -103,7 +101,7 @@ export function SignUp() {
               }}
               {...register("email", {
                 required: true,
-                pattern: /^[а-яА-ЯёЁa-zA-Z\s]+$/,
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
               })}
             />
             {errors.email && (

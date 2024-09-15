@@ -1,8 +1,18 @@
+import { useFetchData } from "@/hooks";
+import { useEffect, useState } from "react";
+import PieChart from "@/components/chart/PieChart";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { data, isLoading } = useFetchData("task/pie-chart");
+  const { data: userTask, isLoading: userTaskLoading } =
+    useFetchData("task/user-tasks");
+  console.log(userTask);
 
-export default Home
+  return (
+    <div>
+      <PieChart data={data} />
+    </div>
+  );
+};
+
+export default Home;
