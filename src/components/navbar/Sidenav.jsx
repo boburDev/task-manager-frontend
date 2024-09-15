@@ -4,9 +4,9 @@ import { BackwardIcon } from "@heroicons/react/24/outline";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
 import store from "@/context/store";
 
-export function Sidenav({ routes }) {
+export function Sidenav({ routes, sidenav, toggleSideNav }) {
   const signout = useSignOut();
-  const logOut = store.getState().logout; 
+  const logOut = store.getState().logout;
 
   const handleSignout = () => {
     logOut();
@@ -19,8 +19,12 @@ export function Sidenav({ routes }) {
         scrollbarWidth: "thin",
         scrollbarColor: "gray transparent",
       }}
-      className="overflow-y-auto fixed inset-0 z-50 my-4 ml-4 text h-[calc(100vh-32px)] w-[10rem] xl:w-[22rem] rounded-xl 
-      transition-transform duration-300 xl:translate-x-0 border border-blue-gray-100"
+      className={`overflow-y-auto fixed inset-0 z-50 my-4 ml-4 text h-[calc(100vh-32px)] w-[10rem] xl:w-[15%] rounded-xl 
+      transition-all  xl:translate-x-0 border bg-blue-gray-50 xl:bg-transparent border-blue-gray-100 xl:visible xl:left-0 ${
+        sidenav
+          ? "visible left-0 duration-300"
+          : "invisible -left-full duration-300"
+      }`}
     >
       <div className="relative">
         <Link to="/dashboard" className="py-6 px-8 text-center">
@@ -29,6 +33,7 @@ export function Sidenav({ routes }) {
           </Typography>
         </Link>
         <IconButton
+          onClick={toggleSideNav}
           variant="text"
           color="white"
           size="sm"
@@ -43,7 +48,7 @@ export function Sidenav({ routes }) {
           <ul key={index} className="flex flex-col">
             {pages.map(({ icon, name, path }, index) => (
               <li key={index}>
-                <NavLink to={`/${layout}${path}`}>
+                <NavLink to={`/${layout}${path}`} onClick={toggleSideNav}>
                   {({ isActive }) => (
                     <Button
                       variant={isActive ? "gradient" : "text"}

@@ -33,7 +33,7 @@ const PieChart = (data) => {
     };
   }, [data]);
   return (
-    <div className="w-[400px] h-[300px] flex text-blue-gray-800 font-medium flex-col items-center mt-14 mx-auto mb-16">
+    <div className="w-[300px] h-[300px] md:w-[400px] md:h-[300px] flex text-blue-gray-800 font-medium flex-col items-center mt-14 mx-auto mb-16">
       <h4 className="text-[18px] text-center">
         All: {data?.data?.[0]?.totalTasks}
       </h4>

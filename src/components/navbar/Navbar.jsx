@@ -6,11 +6,9 @@ import {
   Breadcrumbs,
   Input,
 } from "@material-tailwind/react";
-import {
-  Bars3Icon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 
-export function DashboardNavbar() {
+export function DashboardNavbar({ toggleSideNav }) {
   const { pathname } = useLocation();
 
   const [layout, page = ""] = pathname.split("/").filter((el) => el !== "");
@@ -18,7 +16,7 @@ export function DashboardNavbar() {
   return (
     <Navbar
       color={"white"}
-      className="bg-white rounded-xl transition-all top-4 z-40 py-3 shadow-md xl:translate-x-0 translate-x-32 shadow-blue-gray-500/5 xl:w-full w-[84%]"
+      className="bg-white rounded-xl transition-all top-4 z-40 py-3 shadow-md translate-x-0 xl:translate-x-32 shadow-blue-gray-500/5 w-full xl:w-[90%]"
       blurred={true}
       fullWidth
     >
@@ -42,7 +40,11 @@ export function DashboardNavbar() {
               {page}
             </Typography>
           </Breadcrumbs>
-          <Typography variant="h6" color={"blue-gray"}>
+          <Typography
+            variant="h6"
+            color={"blue-gray"}
+            className="hidden xl:block"
+          >
             {page}
           </Typography>
         </div>
@@ -50,7 +52,11 @@ export function DashboardNavbar() {
           <div className="mr-auto md:mr-4 md:w-56">
             <Input label="Search" />
           </div>
-          <IconButton variant="text" className="grid xl:hidden">
+          <IconButton
+            onClick={toggleSideNav}
+            variant="text"
+            className="grid xl:hidden"
+          >
             <Bars3Icon
               strokeWidth={3}
               className="h-6 w-6 "

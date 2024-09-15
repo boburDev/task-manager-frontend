@@ -66,7 +66,7 @@ export function SignUp() {
 
   return (
     <section className="flex gap-4 justify-center items-center h-screen">
-      <div className="w-full sm:w-[50%] lg:w-1/3 py-12 bg-white border-2 shadow-xl">
+      <div className="w-[90%] sm:w-[50%] lg:w-1/3 py-12 bg-white border-2 shadow-xl">
         <div className="text-center">
           <Typography variant="h2" className="font-bold mb-4">
             Sign Up
