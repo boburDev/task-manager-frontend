@@ -111,7 +111,7 @@ export function SignUp() {
             )}
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 mb-3">
             <Typography
               variant="small"
               color="blue-gray"
@@ -150,7 +150,7 @@ export function SignUp() {
             <Typography
               variant="small"
               color="blue-gray"
-              className="mb-3 font-medium"
+              className="-mb-3 font-medium"
             >
               Password
             </Typography>
